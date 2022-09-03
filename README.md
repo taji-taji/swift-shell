@@ -3,8 +3,8 @@
 Simple shell executor with Swift.
 
 ![Test](https://github.com/taji-taji/swift-shell-executor/actions/workflows/test.yml/badge.svg)
-[![MIT License](https://img.shields.io/github/license/taji-taji/swift-shell-executor)](https://github.com/taji-taji/DangerSwiftPeriphery/blob/main/LICENSE)
-[![Latest Version](https://img.shields.io/github/v/release/taji-taji/swift-shell-executor?label=latest%20version)](https://github.com/taji-taji/DangerSwiftPeriphery/releases/latest)
+[![MIT License](https://img.shields.io/github/license/taji-taji/swift-shell-executor)](https://github.com/taji-taji/swift-shell-executor/blob/main/LICENSE)
+[![Latest Version](https://img.shields.io/github/v/release/taji-taji/swift-shell-executor?label=latest%20version)](https://github.com/taji-taji/swift-shell-executor/releases/latest)
 
 ## Requirements
 
