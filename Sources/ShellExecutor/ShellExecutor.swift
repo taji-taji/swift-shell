@@ -2,9 +2,9 @@ import Foundation
 
 public struct ShellExecutor {
     @discardableResult
-    public func execute(_ command: String,
-                        arguments: [String] = [],
-                        additionalEnvironment: [String: String] = [:]) throws -> String {
+    public func callAsFunction(_ command: String,
+                               arguments: [String] = [],
+                               additionalEnvironment: [String: String] = [:]) throws -> String {
         let script = "\(command) \(arguments.joined(separator: " "))"
 
         let env = ProcessInfo.processInfo.environment

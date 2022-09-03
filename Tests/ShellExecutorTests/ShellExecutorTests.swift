@@ -11,18 +11,18 @@ final class ShellExecutorTests: XCTestCase {
     }
 
     func testPWD() throws {
-        let result = try shell.execute("pwd")
+        let result = try shell("pwd")
         XCTAssertEqual(result, FileManager.default.currentDirectoryPath)
     }
 
     func testAddEnv() throws {
-        let result = try shell.execute("echo",
-                                       arguments: ["$MYENV"],
-                                       additionalEnvironment: ["MYENV": "test"])
+        let result = try shell("echo",
+                               arguments: ["$MYENV"],
+                               additionalEnvironment: ["MYENV": "test"])
         XCTAssertEqual(result, "test")
     }
 
     func testThrowsWhenInvalidCommandCalled() throws {
-        XCTAssertThrowsError(try shell.execute("taji-taji/swift-shell-executor/invalid-command"))
+        XCTAssertThrowsError(try shell("taji-taji/swift-shell-executor/invalid-command"))
     }
 }
