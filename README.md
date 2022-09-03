@@ -1,4 +1,4 @@
-# :shell: ShellExecutor
+# :shell: Swift Shell
 
 Simple shell executor with Swift.
 
@@ -14,7 +14,7 @@ Simple shell executor with Swift.
 
 ### Package.swift
 
-To use the `ShellExecutor` library in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
+To use the `SwiftShell` library in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
 .package(url: "https://github.com/taji-taji/swift-shell.git", from: "1.0.0")
@@ -37,7 +37,7 @@ import SwiftShell
 let shell = Shell()
 
 do {
-    // ShellExecutor is implemented with `callAsFunction`.
+    // Shell is implemented with `callAsFunction`.
     let output = try shell("ls", arguments: ["-l", "-a"])
     print(output)
 } catch {
