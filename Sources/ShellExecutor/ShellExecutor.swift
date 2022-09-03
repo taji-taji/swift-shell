@@ -1,4 +1,4 @@
-public struct swift_shell_executor {
+public struct ShellExecutor {
     public private(set) var text = "Hello, World!"
 
     public init() {
