@@ -1,6 +1,8 @@
 import Foundation
 
 public struct ShellExecutor {
+    public init() {}
+
     @discardableResult
     public func callAsFunction(_ command: String,
                                arguments: [String] = [],
