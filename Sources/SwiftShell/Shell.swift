@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ShellExecutor {
+public struct Shell {
     public init() {}
 
     @discardableResult
@@ -31,7 +31,7 @@ public struct ShellExecutor {
         if status == 0 {
             return outputMessage!
         } else {
-            throw ShellExecutorError(exitStatus: status, description: errorMessage!)
+            throw ShellError(exitStatus: status, description: errorMessage!)
         }
     }
 }

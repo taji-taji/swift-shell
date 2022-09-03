@@ -2,9 +2,9 @@
 
 Simple shell executor with Swift.
 
-![Test](https://github.com/taji-taji/swift-shell-executor/actions/workflows/test.yml/badge.svg)
-[![MIT License](https://img.shields.io/github/license/taji-taji/swift-shell-executor)](https://github.com/taji-taji/swift-shell-executor/blob/main/LICENSE)
-[![Latest Version](https://img.shields.io/github/v/release/taji-taji/swift-shell-executor?label=latest%20version)](https://github.com/taji-taji/swift-shell-executor/releases/latest)
+![Test](https://github.com/taji-taji/swift-shell/actions/workflows/test.yml/badge.svg)
+[![MIT License](https://img.shields.io/github/license/taji-taji/swift-shell)](https://github.com/taji-taji/swift-shell/blob/main/LICENSE)
+[![Latest Version](https://img.shields.io/github/v/release/taji-taji/swift-shell?label=latest%20version)](https://github.com/taji-taji/swift-shell/releases/latest)
 
 ## Requirements
 
@@ -17,24 +17,24 @@ Simple shell executor with Swift.
 To use the `ShellExecutor` library in a SwiftPM project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/taji-taji/swift-shell-executor.git", from: "1.0.0")
+.package(url: "https://github.com/taji-taji/swift-shell.git", from: "1.0.0")
 ```
 
-Include `"ShellExecutor"` as a dependency for your executable target:
+Include `"SwiftShell"` as a dependency for your executable target:
 
 ```swift
 .target(name: "<target>", dependencies: [
-    .product(name: "ShellExecutor", package: "swift-shell-executor"),
+    .product(name: "SwiftShell", package: "swift-shell"),
 ]),
 ```
-Finally, add `import ShellExecutor` to your source code.
+Finally, add `import SwiftShell` to your source code.
 
 ### Example
 
 ```swift
-import ShellExecutor
+import SwiftShell
 
-let shell = ShellExecutor()
+let shell = Shell()
 
 do {
     // ShellExecutor is implemented with `callAsFunction`.
