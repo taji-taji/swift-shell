@@ -7,6 +7,23 @@ public struct Shell {
     public func callAsFunction(_ command: String,
                                arguments: [String] = [],
                                additionalEnvironment: [String: String] = [:]) throws -> String {
+        try shell(command,
+                  arguments: arguments,
+                  additionalEnvironment: additionalEnvironment)
+    }
+
+    @discardableResult
+    public func callAsFunction(_ command: String,
+                               arguments: [String] = [],
+                               additionalEnvironment: [String: String] = [:]) async throws -> String {
+        try shell(command,
+                  arguments: arguments,
+                  additionalEnvironment: additionalEnvironment)
+    }
+
+    private func shell(_ command: String,
+                       arguments: [String] = [],
+                       additionalEnvironment: [String: String] = [:]) throws -> String {
         let script = "\(command) \(arguments.joined(separator: " "))"
 
         let env = ProcessInfo.processInfo.environment
