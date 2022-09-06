@@ -33,6 +33,8 @@ Finally, add `import SwiftShell` to your source code.
 
 ### Example
 
+#### Basic Usage
+
 ```swift
 import SwiftShell
 
@@ -46,6 +48,25 @@ do {
     print(error)
 }
 ```
+
+#### Async / Await
+
+```swift
+import SwiftShell
+
+let shell = Shell()
+
+Task {
+    async let output1 = shell("brew install awesome-tool")
+    async let output2 = shell("bundle install")
+
+    let result = try await (output1, output2)
+    print(result.0)
+    print(result.1)
+}
+```
+
+#### Use Environment Variables
 
 Execute with some Environment Variables. 
 
