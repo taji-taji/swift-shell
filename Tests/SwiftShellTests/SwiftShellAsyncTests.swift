@@ -20,6 +20,6 @@ final class SwiftShellAsyncTests: XCTestCase {
         let _ = try await (first, second, third, fourth)
         let endDate = Date()
 
-        XCTAssertEqual(endDate.timeIntervalSince(startDate), 0.5, accuracy: 0.1)
+        XCTAssertEqual(endDate.timeIntervalSince(startDate), 0.5, accuracy: 1)
     }
 }
