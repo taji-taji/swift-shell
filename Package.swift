@@ -16,6 +16,7 @@ let developTargets: [Target] = isDevelop ? [
 
 let package = Package(
     name: "SwiftShell",
+    platforms: [.macOS(.v10_15)],
     products: [
         .library(
             name: "SwiftShell",
