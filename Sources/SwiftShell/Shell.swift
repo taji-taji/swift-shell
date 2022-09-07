@@ -12,6 +12,7 @@ public struct Shell {
                   additionalEnvironment: additionalEnvironment)
     }
 
+    @available(macOS 10.15, *)
     @discardableResult
     public func callAsFunction(_ command: String,
                                arguments: [String] = [],
