@@ -11,8 +11,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        xcode: ["13.4.1", "13.3.1", "13.2.1"]
+        xcode: ["14.2", "14.1", "14.0.1", "13.4.1", "13.3.1", "13.2.1"]
         include:
+          - xcode: "14.2"
+            macos: macos-12
+          - xcode: "14.1"
+            macos: macos-12
+          - xcode: "14.0.1"
+            macos: macos-12
           - xcode: "13.4.1"
             macos: macos-12
           - xcode: "13.3.1"
@@ -23,15 +29,15 @@ jobs:
     name: macOS
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Select Xcode version
         run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app; swift -version
       - name: Get Swift Version
         id: get-swift-version
         run: |
-          echo "::set-output name=version::$(swift -version | head -n 1 | sed s/,// )"
+          echo "version=$(swift -version | head -n 1 | sed s/,// )" >> $GITHUB_OUTPUT
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             .build/artifacts
@@ -47,8 +53,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.6", "5.5"]
+        swift: ["5.7", "5.6", "5.5"]
         include:
+          - swift: "5.7"
+            container: "swift:5.7"
+            cache-version: 1
           - swift: "5.6"
             container: "swift:5.6"
             cache-version: 2
@@ -60,14 +69,14 @@ jobs:
     name: Linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Get Swift Version
         id: get-swift-version
         run: |
-          echo "::set-output name=version::$(swift -version | head -n 1 | sed s/,// )"
+          echo "version=$(swift -version | head -n 1 | sed s/,// )" >> $GITHUB_OUTPUT
         shell: bash
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             .build/artifacts
@@ -78,4 +87,3 @@ jobs:
             ${{ matrix.cache-version }}-${{ runner.os }}-${{ steps.get-swift-version.outputs.version }}-spm-deps-
       - name: Test
         run: swift test
-
