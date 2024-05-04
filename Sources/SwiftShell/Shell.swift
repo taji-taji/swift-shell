@@ -40,10 +40,10 @@ public struct Shell {
         task.standardOutput = outputPipe
         task.standardError = errorPipe
         task.launch()
-        task.waitUntilExit()
 
         let outputMessage = String(data: outputPipe.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8)?.trimmingCharacters(in: .newlines)
         let errorMessage = String(data: errorPipe.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8)?.trimmingCharacters(in: .newlines)
+        task.waitUntilExit()
 
         let status = task.terminationStatus
         if status == 0 {

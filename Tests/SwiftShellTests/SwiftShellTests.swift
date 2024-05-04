@@ -22,6 +22,12 @@ final class SwiftShellTests: XCTestCase {
         XCTAssertEqual(result, "test")
     }
 
+    func testLongOutput() throws {
+        let longText = (1...100000).map { _ in "=" }.joined(separator: "")
+        let result = try shell("echo '\(longText)'")
+        XCTAssertEqual(result, longText)
+    }
+
     func testThrowsWhenInvalidCommandCalled() throws {
         XCTAssertThrowsError(try shell("taji-taji/swift-shell/invalid-command"))
     }
